@@ -14,6 +14,16 @@
     <title>Technologies - Afkanerd.com</title>
   </head>
   <body style="height: 100%" class="bg-secondary text-dark">
+    <style>
+      img {
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
+      }
+      img:hover {
+        -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(0%);
+      }
+    </style>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,7 +54,7 @@
             <h1 style="font-family: 'VT323', monospace; font-size: 50px">Technologies</h1>
             <h5>Linux | Jsoup | <a onclick="window.open('https://github.com/tensorflow/tensorflow')" href="#">Tensorflow</a> | Android | </h5><br>
             <small>34.2 secs read</small>
-            <h5>We spend time hacking and building codes for our opensource community, the opensource community, our partners and clients. Some things we can share, some other things we cannot (but don't worry, you're not missing out). Our primary objective is providing tools for free for coders who cannot spend time buildng it themselves or learning how to do so</h5>
+            <h5>Who best to to make tools for hackers, programmers and those who make than hacker, programmers and makers? We currently contributing codes to the following tools because it solves problems for us and we can see it solving it for others. All this tools have already been implemented in a real situation and it's currently serving some purpose. Feel free to fork them, contribute more and make them better! Build awesome things around them and help us write documentaions</h5>
           </div>
         </div>
       </div>
@@ -52,48 +62,70 @@
     <br>
     <div class="container">
       <div class="row">
-        <div class="col text-center">
-          <h3>You must be asking what we do... here we go; </h3>
+        <div class="col text-center bg-dark text-secondary">
+          <h3>Programming toolkits and Operating System APIs projects</h3>
         </div>
       </div><br>
       <div class="row">
-        <div class="col-6" style="">
-          <h5><a href="#" onclick="window.open('https://github.com/Afkanerd/5m5')">OpenSMS</a></h5>
-          <p style="background-color: ; color: black; text-align: center">For years we've been learning codes for literally free!! You fire up a browser, type in a few words and you're writing a computer codes. 10 years later, you're making billions from it (some of us). That's an investment worth investing it! So Afkanerd said: What's the best way to build a business for 10 years than providing tools for unique hackers and talented coders to use in generating money? Money you can ask them and they share with you??</p>
-        </div>
-        <div class="col-6">
-          <h5><a href="#" onclick="window.open('https://github.com/Afkanerd/5m5/tree/master/ex__m')">OpenModem</a></h5>
-          <p style="background-color: ; color: black;text-align: center">For years we've been learning codes for literally free!! You fire up a browser, type in a few words and you're writing a computer codes. 10 years later, you're making billions from it (some of us). That's an investment worth investing it! So Afkanerd said: What's the best way to build a business for 10 years than providing tools for unique hackers and talented coders to use in generating money? Money you can ask them and they share with you??</p>
-        </div>
-      </div>
-      <br><br>
-
-      <div class="row">
-        <div class="col-6">
-          <h5>OpenUSSD</h5>
-          <p style="background-color: ; color: black;text-align: center">For years we've been learning codes for literally free!! You fire up a browser, type in a few words and you're writing a computer codes. 10 years later, you're making billions from it (some of us). That's an investment worth investing it! So Afkanerd said: What's the best way to build a business for 10 years than providing tools for unique hackers and talented coders to use in generating money? Money you can ask them and they share with you??</p>
-        </div>
-        <div class="col-6">
-          <h5>jsGenerator</h5>
-          <p style="background-color: ; color: black;text-align: center">
-            We're proud to say we work with smart people till they get to smart places. How much do we ask from them when that happens? Nothing!! What do we get when that happens is a headache and months of someone texting you none stop. Why then do we do it? Because in the business of startups only 1 of 10 succeed, and in that 1 there is a genuis, the world needs genuises! We mentor young people in search of the geniuses hiding amongst them; because when they shine, all humanity enjoys (ask this guy -> <a onclick="window.open('https://en.wikipedia.org/wiki/History_of_condoms')" href="#">Charles Goodyear</a>)
-          </p>
-        </div>
-      </div><br>
-      <div class="row">
-        <div class="col-6">
+        <div class="col-12 text-center">
+          <h5><kbd>afkanerd:~$ cat OpenSMS/about.txt</kbd></h5>
           <div class="card">
-            <div class="card-body">
-              <h5 class=card-title>GenCode</h5>
-              <p style="background-color: ; color: black;text-align: center">For years we've been learning codes for literally free!! You fire up a browser, type in a few words and you're writing a computer codes. 10 years later, you're making billions from it (some of us). That's an investment worth investing it! So Afkanerd said: What's the best way to build a business for 10 years than providing tools for unique hackers and talented coders to use in generating money? Money you can ask them and they share with you??</p>
+            <div class="card-body bg-dark text-light">
+              <p style="text-align: justify; padding-left: 20%; padding-right: 20%"><samp>This is 100% powered by the linux <a href="#" onclick="window.open('https://www.freedesktop.org/software/ModemManager/man/1.0.0/mmcli.8.html')">mmcli library</a> which comes pre-installed in most linux distros. The original source code <a href="#" onclick="window.open('https://github.com/openshine/ModemManager')"> found here </a> is mostly written in C and wrapped around a shell of mystery. We created an API layer here which communicates through the shell with the running functionalities of the system directly. Automating this process can lead to sending bulk sms systems, creating automated responders and build very cool sms related products around it. Let's see what you come up with!</samp></p>
             </div>
           </div>
         </div>
-        <div class="col-6">
-          <h5>TerminalScrum</h5>
-          <p style="background-color: ; color: black;text-align: center">
-            We're proud to say we work with smart people till they get to smart places. How much do we ask from them when that happens? Nothing!! What do we get when that happens is a headache and months of someone texting you none stop. Why then do we do it? Because in the business of startups only 1 of 10 succeed, and in that 1 there is a genuis, the world needs genuises! We mentor young people in search of the geniuses hiding amongst them; because when they shine, all humanity enjoys (ask this guy -> <a onclick="window.open('https://en.wikipedia.org/wiki/History_of_condoms')" href="#">Charles Goodyear</a>)
-          </p>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-12 text-center">
+          <h5><kbd>afkanerd:~$ cat OpenModem/about.txt</kbd></h5>
+          <div class="card">
+            <div class="card-body bg-dark text-light">
+              <p style="text-align: justify; padding-left: 20%; padding-right: 20%"><samp>This is 100% powered by the linux <a href="#" onclick="window.open('https://www.freedesktop.org/software/ModemManager/man/1.0.0/mmcli.8.html')">mmcli library</a> which comes pre-installed in most linux distros. The original source code <a href="#" onclick="window.open('https://github.com/openshine/ModemManager')"> found here </a> is mostly written in C and wrapped around a shell of mystery. We created an API layer here which communicates through the shell with the running functionalities of the system directly. This interacts with 2/3G modems found on a linux system. This provides a layer to communicate and use this modems without writing too much codes. This powers our OpenSMS system</samp></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-12 text-center">
+          <h5><kbd>afkanerd:~$ cat openUSSD/about.txt</kbd></h5>
+          <div class="card">
+            <div class="card-body bg-dark text-light">
+              <p style="text-align: justify; padding-left: 20%; padding-right: 20%"><samp>This is 100% powered by the linux <a href="#" onclick="window.open('https://www.freedesktop.org/software/ModemManager/man/1.0.0/mmcli.8.html')">mmcli library</a> which comes pre-installed in most linux distros. The original source code <a href="#" onclick="window.open('https://github.com/openshine/ModemManager')"> found here </a> is mostly written in C and wrapped around a shell of mystery. We created an API layer here which communicates through the shell with the running functionalities of the system directly. This interacts with 2/3G modems to create a transactional processes for USSD mobile codes. This can automated for very cool processes which involve USSD. Already generates revenue for some of our open contributors who have hacked through codes and automated awesome processes</samp></p>
+            </div>
+          </div>
+        </div>
+      </div><br>
+      <div class="row">
+        <div class="col-12 text-center">
+          <h5><kbd>afkanerd:~$ cat jsGenerator/about.txt</kbd></h5>
+          <div class="card">
+            <div class="card-body bg-dark text-light">
+              <p style="text-align: justify; padding-left: 20%; padding-right: 20%"><samp>For years we've been learning codes for literally free!! You fire up a browser, type in a few words and you're writing a computer codes. 10 years later, you're making billions from it (some of us). That's an investment worth investing it! So Afkanerd said: What's the best way to build a business for 10 years than providing tools for unique hackers and talented coders to use in generating money? Money you can ask them and they share with you??</samp></p>
+            </div>
+          </div>
+        </div>
+      </div><br>
+      <div class="row">
+        <div class="col-12 text-center">
+          <h5><kbd>afkanerd:~$ cat GenCode/about.txt</kbd></h5>
+          <div class="card">
+            <div class="card-body bg-dark text-light">
+              <p style="text-align: justify; padding-left: 20%; padding-right: 20%"><samp>For years we've been learning codes for literally free!! You fire up a browser, type in a few words and you're writing a computer codes. 10 years later, you're making billions from it (some of us). That's an investment worth investing it! So Afkanerd said: What's the best way to build a business for 10 years than providing tools for unique hackers and talented coders to use in generating money? Money you can ask them and they share with you??</samp></p>
+            </div>
+          </div>
+        </div>
+      </div><br>
+      <div class="row">
+        <div class="col-12 text-center">
+          <h5><kbd>afkanerd:~$ cat TerminalScrum/about.txt</kbd></h5>
+          <div class="card">
+            <div class="card-body bg-dark text-light">
+              <p style="text-align: justify; padding-left: 20%; padding-right: 20%"><samp>For years we've been learning codes for literally free!! You fire up a browser, type in a few words and you're writing a computer codes. 10 years later, you're making billions from it (some of us). That's an investment worth investing it! So Afkanerd said: What's the best way to build a business for 10 years than providing tools for unique hackers and talented coders to use in generating money? Money you can ask them and they share with you??</samp></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -101,34 +133,29 @@
 
     <div class="container align-bottom">
       <div class="row">
-        <div class="col text-center">
-          <h3>We've spent time doing this (0_0)(for lots of reasons)</h3>
+        <div class="col text-center bg-dark text-secondary">
+          <h3>Our current research and development projects</h3>
         </div>
       </div><br>
-      <div class="card-deck">
-        <div class="card">
-          <img src="img/linux_system.png" style="height: 200px; width: 100%" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Autonomous Drones</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
+      <div class="media">
+        <img src="../img/drone.jpg" class="mr-3 rounded" style="height: 150px; width: 225px;" alt="...">
+        <div class="media-body">
+          <h5 class="mt-0 bg-dark text-secondary">Autonomous Drones</h5>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
         </div>
-        <div class="card">
-          <img src="img/microcontroller.png" style="height: 200px; width: 100%" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">NLP for Education</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
+      </div><br>
+      <div class="media">
+        <img src="../img/nlp.png" class="mr-3 rounded" style="height: 150px; width: 225px;" alt="...">
+        <div class="media-body">
+          <h5 class="mt-0 bg-dark text-secondary">NLP for Education</h5>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
         </div>
-        <div class="card">
-          <img src="img/signaling.png" style="height: 200px; width: 100%" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Human Classification</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
+      </div><br>
+      <div class="media">
+        <img src="../img/humans.jpg" class="mr-3 rounded" style="height: 150px; width: 225px;" alt="...">
+        <div class="media-body">
+          <h5 class="mt-0 bg-dark text-secondary">Human Classification</h5>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
         </div>
       </div>
     </div>
