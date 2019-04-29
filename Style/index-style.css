@@ -1,0 +1,38 @@
+body{
+    height: 100%; 
+    width: 100%; 
+    font-family: monospace, monospace
+}
+.container{
+    height:80%;
+}
+.row{
+    height:100%;
+}
+.col .textcenter{
+    height:100%;
+}
+h1{
+    font-family: 'VT323', monospace; 
+    font-size: 100px"
+}
+h3{
+    font-size: 14px;
+}
+h3 p{
+    background-color: grey; 
+    font-size: 14px"
+}
+h5{
+    background-color: grey; 
+    color: black;
+}
+
+img {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+  }
+  img:hover {
+    -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(0%);
+  }
