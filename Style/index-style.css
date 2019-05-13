@@ -1,10 +1,16 @@
 body{
     height: 100%; 
     width: 100%; 
-    font-family: monospace, monospace
+    font-family: monospace, monospace;
+    
 }
 .container{
     height:80%;
+    
+}
+.card .card-body {
+    background: -webkit-linear-gradient(59deg, #3A6073, #16222A);
+    background: linear-gradient(59deg, #3A6073, #16222A);
 }
 .row{
     height:100%;
@@ -15,6 +21,9 @@ body{
 h1{
     font-family: 'VT323', monospace; 
     font-size: 100px"
+}
+h1:hover{
+    color:#d3d3d3;
 }
 h3{
     font-size: 14px;
@@ -27,6 +36,9 @@ h5{
     background-color: grey; 
     color: black;
 }
+figcaption{
+    color:#d3d3d3;
+}
 
 img {
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
@@ -36,3 +48,33 @@ img {
     -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
     filter: grayscale(0%);
   }
+
+ footer h5{
+     margin-bottom:5%; 
+    
+ }
+ kbd{
+     background-color: transparent;
+ }
+ .bg-black{
+     background-color:black;
+ }
+
+ /*
+footer {
+    background: #16222A;
+    background: -webkit-linear-gradient(59deg, #3A6073, #16222A);
+    background: linear-gradient(59deg, #3A6073, #16222A);
+    color: white;
+    margin-top:100px;
+  }
+  */
+  
+  
+
+  
+
+
+
+  
+  
