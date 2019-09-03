@@ -12,24 +12,24 @@ if(!$user -> is_logged_in()) {
 <p><label></label><input type="submit" name="submit" value="Login"  /></p>
 </form>
 
-//process login form if submitted
+//process login form is submitted
 
 if(isset($_POST['submit'])){
-  $username = trim($-POST['username']);
-  $password = trim($_POST['password']);
 
-  if($user -> login($username,$password)){
-    //logged in. return to index page
-    header('Location: index.php');
+  $username = trim($_POST['username']);
+  $password = trimf($_POST['password']);
+
+  if($user->login($username,$password)) {
+
+    //logged in return to index password_get_info
+    header('location: index.php');
     exit;
 
+  } else {
+    $message = '<p class ="error">Wrong Username or Password </p>' ;
   }
-  else {
 
-    $message = '<p class="error">Wrong username or password</p>';
-
-  }
-// } end if submit
+// end if submit }
 
 if(isset($message)) {
   echo $message;
