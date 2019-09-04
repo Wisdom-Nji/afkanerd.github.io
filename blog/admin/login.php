@@ -1,3 +1,4 @@
+<?php
 //include config.php
 require_once('../includes/config.php');
 
@@ -5,14 +6,22 @@ require_once('../includes/config.php');
 if(!$user -> is_logged_in()) {
   header('Location: login.php');
 }
+?>
 
-<form action=""method="post">
-<p><label>Username</label><input type="text" name="username" value=""  /></p>
-<p><label>Password</label><input type="password" name="password" value=""  /></p>
-<p><label></label><input type="submit" name="submit" value="Login"  /></p>
-</form>
+<!Doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="../style/normalize.css">
+  <link rel="stylesheet" href="../style/main.css">
+</head>
+<body>
+  <div id ="login">
 
-//process login form is submitted
+  <?php
+
+  //process login form is submitted
 
 if(isset($_POST['submit'])){
 
@@ -29,8 +38,20 @@ if(isset($_POST['submit'])){
     $message = '<p class ="error">Wrong Username or Password </p>' ;
   }
 
-// end if submit }
+}//end here if form submits
 
 if(isset($message)) {
   echo $message;
 }
+?>
+
+<form action=""method="post">
+<p><label>Username</label><input type="text" name="username" value=""  /></p>
+<p><label>Password</label><input type="password" name="password" value=""  /></p>
+<p><label></label><input type="submit" name="submit" value="Login"  /></p>
+</form>
+
+</div>
+</body>
+</html>
+

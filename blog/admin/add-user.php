@@ -1,48 +1,105 @@
-//include config.php
+<?php //include config
 require_once('../includes/config.php');
 
-//if not logged in, redirect to login page
-if(!$user -> is_logged_in()) {
-  header('Location: login.php');
-}
+//if not logged in redirect to login page
+if(!$user->is_logged_in()){ header('Location: login.php'); }
+?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Admin - Add User</title>
+  <link rel="stylesheet" href="../style/normalize.css">
+  <link rel="stylesheet" href="../style/main.css">
+</head>
+<body>
 
-// similar to adding a post except password type changed to make invisible
-<form action='' method='post'>
+<div id="wrapper">
 
-    <p><label>Username</label><br />
-    <input type='text' name='username' value='<?php if(isset($error)){ echo $_POST['username'];}?>'></p>
+	<?php include('menu.php');?>
+	<p><a href="users.php">User Admin Index</a></p>
 
-    <p><label>Password</label><br />
-    <input type='password' name='password' value='<?php if(isset($error)){ echo $_POST['password'];}?>'></p>
+	<h2>Add User</h2>
 
-    <p><label>Confirm Password</label><br />
-    <input type='password' name='passwordConfirm' value='<?php if(isset($error)){ echo $_POST['passwordConfirm'];}?>'></p>
+	<?php
 
-    <p><label>Email</label><br />
-    <input type='text' name='email' value='<?php if(isset($error)){ echo $_POST['email'];}?>'></p>
+	//if form has been submitted process it
+	if(isset($_POST['submit'])){
 
-    <p><input type='submit' name='submit' value='Add User'></p>
+		//collect form data
+		extract($_POST);
 
-</form>
+		//very basic validation
+		if($username ==''){
+			$error[] = 'Please enter the username.';
+		}
 
-//new users will require a hash of their passwords be created
+		if($password ==''){
+			$error[] = 'Please enter the password.';
+		}
 
-$hashpassword = $user -> create_hash($password);
+		if($passwordConfirm ==''){
+			$error[] = 'Please confirm the password.';
+		}
 
-try {
+		if($password != $passwordConfirm){
+			$error[] = 'Passwords do not match.';
+		}
 
-  //insert into database
-  $stmt = $db -> prepare('INSERT INTO blog_members (username,password,email) VALUES (:username, :password,:email)');
-  $stmt -> execute(array (
-    ':username' => $username,
-    ':password' => $password,
-    ':email'    => $email
-  ));
+		if($email ==''){
+			$error[] = 'Please enter the email address.';
+		}
 
-  redirect to index page when done
-  header (Location: users.php?action=added');
-  exit;
+		if(!isset($error)){
 
-} catch (PDOException $e) {
-   echo $e -> getMessage();
-}
+			$hashedpassword = $user->password_hash($password, PASSWORD_BCRYPT);
+
+			try {
+
+				//insert into database
+				$stmt = $db->prepare('INSERT INTO blog_members (username,password,email) VALUES (:username, :password, :email)') ;
+				$stmt->execute(array(
+					':username' => $username,
+					':password' => $hashedpassword,
+					':email' => $email
+				));
+
+				//redirect to index page
+				header('Location: users.php?action=added');
+				exit;
+
+			} catch(PDOException $e) {
+			    echo $e->getMessage();
+			}
+
+		}
+
+	}
+
+	//check for any errors
+	if(isset($error)){
+		foreach($error as $error){
+			echo '<p class="error">'.$error.'</p>';
+		}
+	}
+	?>
+
+	<form action='' method='post'>
+
+		<p><label>Username</label><br />
+		<input type='text' name='username' value='<?php if(isset($error)){ echo $_POST['username'];}?>'></p>
+
+		<p><label>Password</label><br />
+		<input type='password' name='password' value='<?php if(isset($error)){ echo $_POST['password'];}?>'></p>
+
+		<p><label>Confirm Password</label><br />
+		<input type='password' name='passwordConfirm' value='<?php if(isset($error)){ echo $_POST['passwordConfirm'];}?>'></p>
+
+		<p><label>Email</label><br />
+		<input type='text' name='email' value='<?php if(isset($error)){ echo $_POST['email'];}?>'></p>
+		
+		<p><input type='submit' name='submit' value='Add User'></p>
+
+	</form>
+
+</div>

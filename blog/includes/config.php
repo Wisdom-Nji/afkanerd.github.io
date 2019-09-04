@@ -8,7 +8,7 @@ define('DBUSER','database username');
 define('DBPASS','database password');
 define('DBNAME','database name');
 
-$db = new PDO("mysql:host".DBHOST."; port=8889;dbname=".DBNAME, DBUSER, DBPASS);
+$db = new PDO("mysql:host=".DBHOST."; port=;dbname=".DBNAME, DBUSER, DBPASS);
 $db -> setAttribute(PD0::ATTR_ERRMODE, PD0::ERRMODE_EXCEPTION);
 
 //set timezone

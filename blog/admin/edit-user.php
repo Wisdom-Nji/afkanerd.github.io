@@ -1,84 +1,147 @@
-//include config.php
+<?php //include config
 require_once('../includes/config.php');
 
-//if not logged in, redirect to login page
-if(!$user -> is_logged_in()) {
-  header('Location: login.php');
-}
-
-<?php
- try {
-
-        $stmt = $db->prepare('SELECT memberID, username, email FROM blog_members WHERE memberID = :memberID') ;
-        $stmt->execute(array(':memberID' => $_GET['id']));
-        $row = $stmt->fetch();
-
-    } catch(PDOException $e) {
-        echo $e->getMessage();
-    }
+//if not logged in redirect to login page
+if(!$user->is_logged_in()){ header('Location: login.php'); }
 ?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Admin - Edit User</title>
+  <link rel="stylesheet" href="../style/normalize.css">
+  <link rel="stylesheet" href="../style/main.css">
+</head>
+<body>
 
-<form action='' method='post'>
-    <input type='hidden' name='memberID' value='<?php echo $row['memberID'];?>'>
+<div id="wrapper">
 
-    <p><label>Username</label><br />
-    <input type='text' name='username' value='<?php echo $row['username'];?>'></p>
+	<?php include('menu.php');?>
+	<p><a href="users.php">User Admin Index</a></p>
 
-    <p><label>Password (only to change)</label><br />
-    <input type='password' name='password' value=''></p>
-
-    <p><label>Confirm Password</label><br />
-    <input type='password' name='passwordConfirm' value=''></p>
-
-    <p><label>Email</label><br />
-    <input type='text' name='email' value='<?php echo $row['email'];?>'></p>
-
-    <p><input type='submit' name='submit' value='Update User'></p>
-
-</form>
+	<h2>Edit User</h2>
 
 
-//When running validation the password checks should only run if a password has been entered.
-//basic validation
+	<?php
 
-if( strlen($password) > 0){
+	//if form has been submitted process it
+	if(isset($_POST['submit'])){
 
-if($password ==''){
-    $error[] = 'Please enter the password.';
-}
+		//collect form data
+		extract($_POST);
 
-if($passwordConfirm ==''){
-    $error[] = 'Please confirm the password.';
-}
+		//very basic validation
+		if($username ==''){
+			$error[] = 'Please enter the username.';
+		}
 
-if($password != $passwordConfirm){
-    $error[] = 'Passwords do not match.';
-}
+		if( strlen($password) > 0){
 
-}
+			if($password ==''){
+				$error[] = 'Please enter the password.';
+			}
 
-if(isset($password)){
+			if($passwordConfirm ==''){
+				$error[] = 'Please confirm the password.';
+			}
 
-$hashedpassword = $user->create_hash($password);
+			if($password != $passwordConfirm){
+				$error[] = 'Passwords do not match.';
+			}
 
-//update into database
-$stmt = $db->prepare('UPDATE blog_members SET username = :username, password = :password, email = :email WHERE memberID = :memberID') ;
-$stmt->execute(array(
-    ':username' => $username,
-    ':password' => $hashedpassword,
-    ':email' => $email,
-    ':memberID' => $memberID
-));
+		}
+		
+
+		if($email ==''){
+			$error[] = 'Please enter the email address.';
+		}
+
+		if(!isset($error)){
+
+			try {
+
+				if(isset($password)){
+
+					$hashedpassword = $user->password_hash($password, PASSWORD_BCRYPT);
+
+					//update into database
+					$stmt = $db->prepare('UPDATE blog_members SET username = :username, password = :password, email = :email WHERE memberID = :memberID') ;
+					$stmt->execute(array(
+						':username' => $username,
+						':password' => $hashedpassword,
+						':email' => $email,
+						':memberID' => $memberID
+					));
 
 
-} else {
+				} else {
 
-//update database
-$stmt = $db->prepare('UPDATE blog_members SET username = :username, email = :email WHERE memberID = :memberID') ;
-$stmt->execute(array(
-    ':username' => $username,
-    ':email' => $email,
-    ':memberID' => $memberID
-));
+					//update database
+					$stmt = $db->prepare('UPDATE blog_members SET username = :username, email = :email WHERE memberID = :memberID') ;
+					$stmt->execute(array(
+						':username' => $username,
+						':email' => $email,
+						':memberID' => $memberID
+					));
 
-}
+				}
+				
+
+				//redirect to index page
+				header('Location: users.php?action=updated');
+				exit;
+
+			} catch(PDOException $e) {
+			    echo $e->getMessage();
+			}
+
+		}
+
+	}
+
+	?>
+
+
+	<?php
+	//check for any errors
+	if(isset($error)){
+		foreach($error as $error){
+			echo $error.'<br />';
+		}
+	}
+
+		try {
+
+			$stmt = $db->prepare('SELECT memberID, username, email FROM blog_members WHERE memberID = :memberID') ;
+			$stmt->execute(array(':memberID' => $_GET['id']));
+			$row = $stmt->fetch(); 
+
+		} catch(PDOException $e) {
+		    echo $e->getMessage();
+		}
+
+	?>
+
+	<form action='' method='post'>
+		<input type='hidden' name='memberID' value='<?php echo $row['memberID'];?>'>
+
+		<p><label>Username</label><br />
+		<input type='text' name='username' value='<?php echo $row['username'];?>'></p>
+
+		<p><label>Password (only to change)</label><br />
+		<input type='password' name='password' value=''></p>
+
+		<p><label>Confirm Password</label><br />
+		<input type='password' name='passwordConfirm' value=''></p>
+
+		<p><label>Email</label><br />
+		<input type='text' name='email' value='<?php echo $row['email'];?>'></p>
+
+		<p><input type='submit' name='submit' value='Update User'></p>
+
+	</form>
+
+</div>
+
+</body>
+</html>	
