@@ -8,6 +8,14 @@ ajax.onreadystatechange = function () {
       var kbd = document.createElement("kbd");
       //kbd.setAttribute("style", " background-image: linear-gradient(-60deg, #000428 , #004e92);");
       kbd.setAttribute("class", "bg-light text-dark roboto");
+
+ajax.onreadystatechange = function() {
+  if(this.status == 200 && this.readyState == 4) {
+    var sr = JSON.parse(this.responseText);
+
+    for(var repo in sr) {
+      var repo = sr[repo];
+      var kbd = document.createElement("kbd");
       kbd.appendChild(document.createTextNode(`${repo.name} | ${repo.language}`));
 
       var h5 = document.createElement("h5");
@@ -25,6 +33,16 @@ ajax.onreadystatechange = function () {
       kbd_.setAttribute("style", "cursor: pointer;");
       //kbd_.setAttribute("style", " background-image: linear-gradient(45deg, #43cea2 , #185a9d);");
       kbd_.setAttribute("class", "btn btn-outline-success  lato rounded-pill py-2 px-4");
+      p.setAttribute("style", "text-align: justify");
+      p.appendChild(samp);
+
+      var div = document.createElement("div");
+      div.setAttribute("class", "card-body bg-dark text-light");
+      div.appendChild(p);
+
+      var kbd_ = document.createElement("a");
+      kbd_.setAttribute("style", "cursor: pointer");
+      kbd_.setAttribute("class", "btn btn-secondary");
       // kbd_.setAttribute("onclick", `window.open(${repo.html_url})`);
       kbd_.href = repo.html_url;
       kbd_.appendChild(document.createTextNode("Github"));
@@ -45,11 +63,18 @@ ajax.onreadystatechange = function () {
 
       var div__ = document.createElement("div");
       div__.setAttribute("class", "card");
+      var div_ = document.createElement("div");
+      div_.setAttribute("class", "card-footer");
+      div_.appendChild(h5_);
+
+      var div__ = document.createElement("div");
+      div__.setAttribute("class", "card  bg-dark text-light");
       div__.appendChild(div);
       div__.appendChild(div_);
 
       var div___ = document.createElement("div");
       div___.setAttribute("class", "col-12");
+      div___.setAttribute("class", "col-12 text-center");
       div___.appendChild(h5);
       div___.appendChild(div__);
 
