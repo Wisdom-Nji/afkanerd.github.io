@@ -1,0 +1,187 @@
+body {
+  background-image: url("../img/body-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-image {
+  background-image: url("../img/nav-bg.jpg");
+  background-size: cover;
+}
+.repo-bg {
+  background-image: url("../img/repo-bg.jpg");
+  background-size: cover;
+  border-radius: 1.5rem !important;
+}
+
+.transparent {
+  background: transparent;
+}
+/* fonts classes */
+@font-face {
+  font-family: Anurati;
+  src: url(../font/Anurati.otf);
+}
+.roboto {
+  font-family: "Roboto", sans-serif;
+}
+.roboto-md {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+}
+.robot-lg {
+  font-family: "Roboto", sans-serif;
+  font-size: 2.5rem;
+}
+.lato {
+  font-family: "Lato", sans-serif;
+}
+.lato-lg {
+  font-family: "Lato", sans-serif;
+  font-size: 2.5rem;
+}
+.lato-md {
+  font-family: "Lato", sans-serif;
+  font-size: 1.5rem;
+}
+.anton {
+  font-family: "Anton", sans-serif;
+}
+.anton-lg {
+  font-family: "Anton", sans-serif;
+  font-size: 2.5rem;
+}
+.abril {
+  font-family: "Abril Fatface", cursive;
+}
+.abril-md {
+  font-family: "Abril Fatface", cursive;
+  font-size: 1.5rem;
+}
+.abril-lg {
+  font-family: "Abril Fatface", cursive;
+  font-size: 2.5rem;
+}
+.lobster {
+  font-family: "Lobster", cursive;
+}
+
+.lobster-lg {
+  font-family: "Lobster", cursive;
+  font-size: 2.5rem;
+}
+
+.logo {
+  font-family: Anurati;
+  color: white;
+}
+.logo:hover {
+  color: red;
+}
+.logo-lg {
+  width: 230px;
+  height: 30px;
+}
+
+.logo-sm {
+  width: 300px;
+  height: 30px;
+  margin-left: 5px;
+}
+
+.VT323 {
+  font-family: "VT323", monospace;
+}
+
+.intro {
+  font-size: 20px;
+  color: black;
+}
+.bigger {
+  font-size: 18px;
+}
+
+a,
+a:hover,
+a:visited,
+a:focus {
+  text-decoration: none;
+}
+
+.caption {
+  height: 450px;
+  padding: 100px 0 100px 0;
+  margin: 10px;
+}
+
+.icon {
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+}
+
+.bg-black {
+  background-color: black;
+  color: white;
+}
+
+footer p a {
+  color: white !important;
+}
+footer p a:hover {
+  color: red !important;
+}
+
+.nav-link {
+  color: white !important;
+}
+
+.nav-link:hover {
+  color: red !important;
+}
+
+.card-img-top {
+  border-radius: 1.5rem !important;
+}
+
+.material-icons.md-18 {
+  font-size: 18px;
+}
+.material-icons.md-24 {
+  font-size: 24px;
+}
+.material-icons.md-36 {
+  font-size: 36px;
+}
+.material-icons.md-48 {
+  font-size: 48px;
+}
+
+/* overide */
+.btn-outline-danger {
+  color: red;
+  border-color: red;
+}
+
+.btn-outline-danger:hover {
+  color: #fff;
+  background-color: red;
+  border-color: red;
+}
+.bg-danger {
+  background-color: red !important;
+}
+.text-danger {
+  color: red !important;
+}
+
+.services-img {
+  width: 100%;
+  border-radius: 2rem;
+  height: 250px;
+}
+
+.font-lg {
+  font-size: 4em;
+}
+/* animations */
